@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mapavtr_test";
+$dbname = "mapavtr";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
