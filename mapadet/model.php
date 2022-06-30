@@ -37,8 +37,11 @@ if(isset($_GET['iddetmp'])) {
      $sql_detmapa = "DELETE FROM detmapa WHERE iddetmp=$iddetmp";
 
      if ($conn->query($sql_detmapa) === TRUE) {
-        echo "
-        <script>location.href='analit.php?idmapa=".$idmapa."&idvtr=".$idvtr."'</script>";
+
+       if ($_GET['idvtr'] === FALSE) { echo "<script>location.href='analit.php?idmapa=".$idmapa."&idvtr=".$idvtr."'</script>"; } 
+
+       echo "<script>location.href='index.php?idmapa=".$idmapa."'</script>";
+
       } else {
         echo "Error: " . $sql_detmapa . "<br>" . $conn->error;
       } exit();
