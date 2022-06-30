@@ -54,20 +54,20 @@
                 <span class="input-group-text">Saída</span>
                 <input type="time" class="form-control" name="horasaida"  value="<?=date('H:i');?>" placeholder="Hora saída" required>
                 <span class="input-group-text">Chegada</span>
-                <input type="time" class="form-control"  name="horaentr" value="<?=date('H:i');?>" placeholder="Hora chegada" required>
+                <input type="time" class="form-control" name="horaentr" value="<?=date('H:i');?>" placeholder="Hora chegada" required>
               </div>
 
               <div class="col-sm form-floating"> 
                 <select class="form-select" name="destino"  required>
-                  <option value="Abastecimento" <?php if($row_detmapa["destino"] == 'Abastecimento') echo 'selected';?>>Abastecimento</option>
-                  <option value="Ocorrencia" <?php if($row_detmapa["destino"] == 'Ocorrencia') echo 'selected';?>>Ocorrência</option>
-                  <option value="Oficina" <?php if($row_detmapa["destino"] == 'Oficina') echo 'selected';?>>Oficina</option>
-                  <option value="Ordem de Serviço" <?php if($row_detmapa["destino"] == 'Ordem de Serviço') echo 'selected';?>>Ordem de Serviço</option>
-                  <option value="Outros" <?php if($row_detmapa["destino"] == 'Outros') echo 'selected';?>>Outros</option>
-                  <option value="Ponto Base" <?php if($row_detmapa["destino"] == 'Ponto Base') echo 'selected';?>>Ponto Base</option>
-                  <option value="QRF" <?php if($row_detmapa["destino"] == 'QRF') echo 'selected';?>>QRF</option>
-                  <option value="Viagem" <?php if($row_detmapa["destino"] == 'Viagem') echo 'selected';?>>Viagem</option>
-                  <option value="Vistoria" <?php if($row_detmapa["destino"] == 'Vistorias') echo 'selected';?>>Vistorias</option>
+                  <option value="Abastecimento" >Abastecimento</option>
+                  <option value="Ocorrencia" >Ocorrência</option>
+                  <option value="Oficina" >Oficina</option>
+                  <option value="Ordem de Serviço" >Ordem de Serviço</option>
+                  <option value="Outros" >Outros</option>
+                  <option value="Ponto Base" >Ponto Base</option>
+                  <option value="QRF" >QRF</option>
+                  <option value="Viagem" >Viagem</option>
+                  <option value="Vistoria" >Vistorias</option>
                 </select>
                 <label for="destino">Destino:</label>
               </div>
@@ -80,7 +80,7 @@
               </div>
 
               <div class="form-floating"> 
-                <textarea rows="5" cols="50" class="form-control" name="obs" placeholder="obs"><?=$row_detmapa["obs"]; ?></textarea>
+                <textarea rows="5" cols="50" class="form-control" name="obs" placeholder="obs"></textarea>
                 <label for="obs">Observações:</label>
               </div>
             

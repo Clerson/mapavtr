@@ -43,11 +43,7 @@ include '_form_delete.php';
 
 </div>
 
-<!--     <div class="col-sm-2">
-
-    <?php include '_sint.php';?>
-
-    </div> -->
+<div class="col-sm-2"> <?php include '_sint.php';?> </div>
 
 </div>
 
