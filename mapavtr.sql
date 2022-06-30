@@ -1,10 +1,3 @@
--- --------------------------------------------------------
--- Servidor:                     127.0.0.1
--- Versão do servidor:           5.7.33 - MySQL Community Server (GPL)
--- OS do Servidor:               Win64
--- HeidiSQL Versão:              11.2.0.6213
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
@@ -12,12 +5,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE DATABASE IF NOT EXISTS `mapavtr` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `mapavtr`;
 
--- Copiando estrutura do banco de dados para mapavtr_test
-CREATE DATABASE IF NOT EXISTS `mapavtr_test` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `mapavtr_test`;
-
--- Copiando estrutura para tabela mapavtr_test.detmapa
 CREATE TABLE IF NOT EXISTS `detmapa` (
   `iddetmp` int(11) NOT NULL AUTO_INCREMENT,
   `idmapa` int(11) DEFAULT NULL,
@@ -35,9 +25,9 @@ CREATE TABLE IF NOT EXISTS `detmapa` (
   KEY `idvtr` (`idvtr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela mapavtr_test.detmapa: ~2.049 rows (aproximadamente)
+DELETE FROM `detmapa`;
 /*!40000 ALTER TABLE `detmapa` DISABLE KEYS */;
-INSERT IGNORE INTO `detmapa` (`iddetmp`, `idmapa`, `idvtr`, `idpessoa`, `odomsaida`, `odomentr`, `horasaida`, `horaentr`, `destino`, `obs`, `detmp_status`) VALUES
+INSERT INTO `detmapa` (`iddetmp`, `idmapa`, `idvtr`, `idpessoa`, `odomsaida`, `odomentr`, `horasaida`, `horaentr`, `destino`, `obs`, `detmp_status`) VALUES
 	(1, 1, 38, 49, '52679', '52683', '08:52:00', '09:12:00', 'Outros', 'Sec. Meio Ambiente', 'fechada'),
 	(2, 1, 29, 98, '47405', '47411', '10:25:00', '11:08:00', 'Outros', 'UPA/RETAGUARDA', 'fechada'),
 	(3, 1, 38, 49, '52683', '52688', '11:05:00', '11:37:00', 'QRF', '', 'fechada'),
@@ -1975,7 +1965,7 @@ INSERT IGNORE INTO `detmapa` (`iddetmp`, `idmapa`, `idvtr`, `idpessoa`, `odomsai
 	(2007, 145, 90, 70, '11473', '11481', '14:45:00', '16:25:00', 'Ocorrencia', 'RAI:25184154. NATUREZA: 30107', 'fechada'),
 	(2008, 145, 90, 70, '11481', '11514', '16:57:00', '20:00:00', 'Ordem de ServiÃ§o', 'RAI: RODOVIA', 'fechada'),
 	(2009, 145, 29, 59, '49738', '49747', '20:01:00', '21:29:00', 'Ocorrencia', 'RAI: 25189144', 'fechada'),
-	(2010, 145, 90, 70, '11514', '11514', '20:54:00', '20:54:00', 'Ponto Base', '', 'aberta'),
+	(2010, 145, 90, 70, '11514', '11514', '20:54:00', '20:54:00', 'Ponto Base', '', 'fechada'),
 	(2011, 146, 90, 121, '11514', '11568', '09:56:00', '11:43:00', 'Ocorrencia', 'RAI:', 'fechada'),
 	(2012, 146, 38, 33, '58791', '58809', '10:32:00', '11:39:00', 'Ocorrencia', 'RAI:', 'fechada'),
 	(2013, 146, 29, 34, '49747', '49761', '12:40:00', '13:28:00', 'Ocorrencia', 'RAI:', 'fechada'),
@@ -2027,7 +2017,7 @@ INSERT IGNORE INTO `detmapa` (`iddetmp`, `idmapa`, `idvtr`, `idpessoa`, `odomsai
 	(2062, 150, 29, 34, '49821', '49822', '20:15:00', '20:21:00', 'Ocorrencia', 'RAI:', 'aberta'),
 	(2063, 150, 38, 83, '59066', '59066', '20:22:00', '20:22:00', 'Ocorrencia', 'RAI:', 'aberta'),
 	(2064, 150, 38, 96, '59066', '59066', '21:33:00', '21:45:00', 'Ocorrencia', 'RAI:', 'aberta'),
-	(2065, 150, 90, 73, '11870', '11873', '00:02:00', '06:16:00', 'Ponto Base', 'RAI:', 'aberta'),
+	(2065, 150, 90, 73, '11870', '11873', '00:02:00', '06:16:00', 'Ponto Base', 'RAI:', 'fechada'),
 	(2066, 151, 90, 83, '11874', '11883', '09:45:00', '11:10:00', 'Ocorrencia', 'RAI:', 'fechada'),
 	(2067, 151, 29, 32, '49822', '49833', '10:15:00', '10:33:00', 'Ocorrencia', 'RAI:', 'fechada'),
 	(2068, 151, 38, 50, '59066', '59153', '12:28:00', '13:55:00', 'Ocorrencia', 'RAI:25266760', 'fechada'),
@@ -2084,36 +2074,66 @@ INSERT IGNORE INTO `detmapa` (`iddetmp`, `idmapa`, `idvtr`, `idpessoa`, `odomsai
 	(2122, 154, 30, 65, '111859', '111922', '13:00:00', '18:34:00', 'Abastecimento', 'RAI:', 'fechada'),
 	(2123, 154, 90, 101, '12121', '12121', '20:29:00', '22:29:00', 'Ponto Base', 'RAI: 25320449', 'fechada'),
 	(2124, 154, 38, 83, '593181', '593271', '06:55:00', '06:55:00', 'Ocorrencia', 'RAI: 25323490', 'fechada'),
-	(2125, 155, 90, 82, '12131', '12131', '08:21:00', '08:21:00', 'Abastecimento', 'RAI:', 'fechada'),
-	(2126, 155, 38, 50, '59327', '59329', '11:07:00', '11:07:00', 'Abastecimento', 'RAI:', 'fechada'),
-	(2127, 155, 38, 50, '593271', '593271', '11:09:00', '11:09:00', 'Ordem de ServiÃ§o', 'RAI:', 'aberta');
+	(2125, 155, 90, 82, '12131', '12137', '14:35:00', '14:57:00', 'Ocorrencia', 'RAI: 25329000', 'fechada'),
+	(2126, 155, 38, 50, '59327', '59329', '10:46:00', '11:15:00', 'QRF', 'RAI:', 'fechada'),
+	(2127, 155, 29, 32, '49872', '49893', '13:43:00', '14:40:00', 'Ocorrencia', 'RAI: 25328250', 'fechada'),
+	(2128, 155, 90, 82, '12137', '12145', '19:48:00', '21:07:00', 'Ponto Base', 'RAI: 25333919 O.S. ESTADIO SERRA DE CALDAS', 'fechada'),
+	(2129, 155, 29, 32, '49893', '49900', '21:26:00', '22:39:00', 'Ocorrencia', 'RAI 25335795', 'fechada'),
+	(2130, 155, 90, 82, '12145', '12152', '21:45:00', '06:00:00', 'Ponto Base', 'POSTO AVANÃ‡ADO', 'fechada'),
+	(2131, 155, 38, 50, '59332', '59332', '07:07:00', '07:07:00', 'Abastecimento', '', 'fechada'),
+	(2132, 156, 90, 101, '12152', '12165', '07:40:00', '08:40:00', 'Ocorrencia', 'RAI: 25339383', 'fechada'),
+	(2133, 156, 90, 101, '12165', '12169', '12:00:00', '12:15:00', 'QRF', '', 'fechada'),
+	(2134, 156, 38, 98, '59332', '59340', '12:00:00', '12:33:00', 'Outros', 'RAI:', 'fechada'),
+	(2135, 156, 90, 101, '12169', '12190', '14:39:00', '15:30:00', 'Abastecimento', 'RAI: 25343886', 'fechada'),
+	(2136, 156, 29, 49, '49900', '49917', '13:45:00', '15:26:00', 'Ocorrencia', 'RAI: 25343808', 'fechada'),
+	(2137, 156, 41, 83, '22695', '22713', '13:45:00', '15:57:00', 'Ocorrencia', 'RAI:', 'fechada'),
+	(2139, 156, 90, 101, '12190', '12197', '18:41:00', '20:10:00', 'Ordem de ServiÃ§o', 'ATENDIMENTO A O.S. N. 285/2022', 'fechada'),
+	(2140, 156, 29, 49, '49917', '49917', '18:54:00', '18:54:00', 'Abastecimento', 'OCORRENCIA 25347993', 'aberta'),
+	(2141, 156, 41, 83, '22713', '22713', '18:56:00', '18:56:00', 'Ocorrencia', '', 'aberta'),
+	(2142, 156, 90, 101, '12197', '12204', '20:58:00', '06:07:00', 'Ponto Base', 'POSTO AVANÃ‡ADO', 'fechada'),
+	(2143, 157, 38, 59, '59340', '59348', '09:36:00', '10:54:00', 'Abastecimento', 'RAI:', 'fechada'),
+	(2144, 157, 30, 61, '111922', '111922', '07:39:00', '09:55:00', 'Oficina', 'RAI:', 'aberta'),
+	(2145, 157, 90, 70, '12204', '12206', '11:11:00', '11:24:00', 'QRF', 'RAI:', 'fechada'),
+	(2146, 157, 90, 70, '12206', '12221', '12:42:00', '13:41:00', 'Ocorrencia', 'RAI:25356517', 'fechada'),
+	(2147, 157, 91, 68, '10685', '10685', '12:20:00', '14:16:00', 'Outros', 'saÃ­da 11.863', 'aberta'),
+	(2148, 157, 29, 34, '49917', '49935', '17:56:00', '19:49:00', 'Ocorrencia', 'SAÃDA 49.923  RAI: 25.362.266\r\n', 'fechada'),
+	(2149, 157, 90, 70, '12221', '12234', '17:35:00', '19:16:00', 'Ponto Base', 'RAI:', 'fechada'),
+	(2150, 157, 29, 34, '49935', '49946', '19:51:00', '21:10:00', 'Ocorrencia', 'RAI: 25.364.105 e 25.365.281\r\n', 'fechada'),
+	(2151, 157, 90, 70, '12234', '12238', '20:02:00', '20:41:00', 'Ponto Base', 'RAI:', 'fechada'),
+	(2152, 157, 38, 59, '59348', '59348', '20:15:00', '21:03:00', 'Ocorrencia', 'RAI:', 'aberta'),
+	(2153, 157, 38, 59, '59348', '59360', '20:15:00', '21:03:00', 'Ocorrencia', 'RAI: 25.364.105', 'fechada'),
+	(2154, 158, 29, 83, '49946', '49955', '09:38:00', '10:23:00', 'Ocorrencia', 'RAI: 25368482', 'fechada'),
+	(2155, 158, 38, 33, '59360', '59373', '09:38:00', '10:08:00', 'Ocorrencia', 'RAI:25368482', 'fechada'),
+	(2156, 158, 90, 73, '12238', '12248', '11:29:00', '11:53:00', 'Ocorrencia', 'RAI: 25370517', 'fechada'),
+	(2157, 158, 35, 65, '104721', '104807', '07:00:00', '11:36:00', 'Abastecimento', 'RAI:', 'fechada'),
+	(2158, 158, 41, 83, '22713', '22727', '17:17:00', '17:17:00', 'Ocorrencia', 'RAI: 25376301', 'fechada'),
+	(2159, 158, 90, 73, '12248', '12254', '17:40:00', '19:01:00', 'Ponto Base', 'RAI:', 'fechada'),
+	(2161, 158, 29, 83, '49955', '49981', '18:16:00', '20:23:00', 'Ocorrencia', 'RAI: 25377220', 'fechada'),
+	(2162, 158, 38, 33, '59373', '59374', '19:22:00', '20:23:00', 'Ocorrencia', 'RAI: 25380422', 'fechada'),
+	(2163, 158, 38, 33, '59373', '59383', '20:23:00', '21:23:00', 'Ocorrencia', 'RAI: 25379339', 'fechada'),
+	(2164, 158, 90, 32, '12254', '12254', '21:31:00', '21:31:00', 'Ocorrencia', 'RAI: 25380314', 'aberta'),
+	(2165, 159, 38, 33, '59383', '59388', '09:30:00', '10:27:00', 'Ocorrencia', 'RAI: 25384090', 'fechada'),
+	(2166, 159, 90, 87, '12254', '12271', '11:15:00', '09:50:00', 'Abastecimento', '', 'fechada'),
+	(2167, 159, 38, 33, '59388', '59390', '11:15:00', '11:29:00', 'QRF', '1', 'fechada'),
+	(2168, 159, 90, 87, '12271', '12275', '11:15:00', '11:30:00', 'QRF', '', 'fechada'),
+	(2169, 159, 90, 87, '12275', '12286', '16:31:00', '17:20:00', 'Ocorrencia', 'RAI: 25390493\r\n', 'fechada'),
+	(2170, 159, 90, 49, '12286', '12298', '17:52:00', '19:24:00', 'Ordem de ServiÃ§o', 'RAI:25392865', 'fechada'),
+	(2171, 159, 38, 33, '59390', '59393', '18:36:00', '18:56:00', 'Ocorrencia', '', 'fechada'),
+	(2172, 159, 30, 14, '111922', '111947', '11:37:00', '11:58:00', 'Outros', 'ORÃ‡AMENTO', 'fechada'),
+	(2173, 159, 35, 65, '104807', '104876', '13:10:00', '17:37:00', 'Abastecimento', 'RAI:', 'fechada'),
+	(2175, 159, 90, 49, '12298', '12300', '20:43:00', '20:53:00', 'Ponto Base', 'RAI: COMANDO REGIONAL', 'fechada'),
+	(2176, 159, 90, 49, '12300', '12308', '23:29:00', '23:55:00', 'Ocorrencia', 'RAI: 25396748', 'fechada'),
+	(2177, 159, 38, 11, '59393', '59403', '23:27:00', '00:05:00', 'Ocorrencia', 'RAI: 25396748', 'fechada'),
+	(2178, 159, 29, 32, '49981', '49991', '23:27:00', '00:06:00', 'Ocorrencia', 'RAI:  25396748', 'fechada'),
+	(2179, 159, 41, 59, '22745', '22745', '04:30:00', '06:12:00', 'Viagem', 'RAI: SÃƒO JOSÃ‰ DOS BANDEIRANTES', 'aberta'),
+	(2180, 159, 90, 49, '12308', '12310', '05:57:00', '06:04:00', 'Ponto Base', 'RAI: RETORNO DO COMANDO REGIONAL', 'fechada'),
+	(2181, 159, 90, 101, '12310', '12310', '07:47:00', '07:57:00', 'Ocorrencia', 'RAI: 25398075\r\n', 'aberta'),
+	(2182, 160, 90, 98, '12310', '12315', '07:55:00', '08:16:00', 'Ocorrencia', 'RAI:', 'fechada'),
+	(2183, 160, 30, 96, '111947', '111947', '09:00:00', '09:00:00', 'Oficina', 'Oficina do Ribeiro', 'aberta'),
+	(2184, 160, 38, 32, '59403', '59403', '09:12:00', '09:12:00', 'Outros', 'RAI:', 'aberta'),
+	(2186, 160, 29, 49, '49991', '49991', '09:12:00', '09:57:00', 'Outros', 'PA', 'aberta');
 /*!40000 ALTER TABLE `detmapa` ENABLE KEYS */;
 
--- Copiando estrutura para tabela mapavtr_test.entidades
-CREATE TABLE IF NOT EXISTS `entidades` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `sigla` varchar(255) NOT NULL,
-  `organizacao` varchar(255) DEFAULT NULL,
-  `responsavel` varchar(255) DEFAULT NULL,
-  `ramo` varchar(255) DEFAULT NULL,
-  `sede` varchar(255) DEFAULT NULL,
-  `natureza` varchar(255) DEFAULT NULL,
-  `endereco` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Copiando dados para a tabela mapavtr_test.entidades: ~2 rows (aproximadamente)
-/*!40000 ALTER TABLE `entidades` DISABLE KEYS */;
-INSERT IGNORE INTO `entidades` (`id`, `nome`, `sigla`, `organizacao`, `responsavel`, `ramo`, `sede`, `natureza`, `endereco`) VALUES
-	(1, '9Âº BatalhÃ£o Bombeiro Militar', '9Âº BBM', 'CBMGO', 'TC Tiago Dias Coelho', 'bombeiro militar', 'Caldas Novas', 'Privado', 'Av. D, Qd. 18, Lt. C, Parque das Brisas - CEP75687-508 - Caldas Novas/GO'),
-	(2, '3º Batalhão Bombeiro Militar', '3° BBM', 'CBMGO', NULL, 'bombeiro militar', 'Anápolis', 'Público', NULL),
-	(3, '4Âº BatalhÃ£o Bombeiro Militar - Rio Verde', '4Â° BBM', 'CBMGO', '', 'bombeiros', 'Rio Verde', 'natureza', 'endereco'),
-	(4, '5Âº BatalhÃ£o Bombeiro Militar- LuziÃ¢nia', '5Â° BBM', 'CBMGO', '', '', 'LuziÃ¢nia', 'natureza', 'endereco'),
-	(5, '6Âº BatalhÃ£o Bombeiro Militar - Itumbiara', '6Âº BBM', 'CBMGO', '', '', 'Itumbiara', 'natureza', 'endereco');
-/*!40000 ALTER TABLE `entidades` ENABLE KEYS */;
-
--- Copiando estrutura para tabela mapavtr_test.mapas
 CREATE TABLE IF NOT EXISTS `mapas` (
   `idmapa` int(11) NOT NULL AUTO_INCREMENT,
   `ala` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2125,9 +2145,9 @@ CREATE TABLE IF NOT EXISTS `mapas` (
   PRIMARY KEY (`idmapa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela mapavtr_test.mapas: ~153 rows (aproximadamente)
+DELETE FROM `mapas`;
 /*!40000 ALTER TABLE `mapas` DISABLE KEYS */;
-INSERT IGNORE INTO `mapas` (`idmapa`, `ala`, `idofdia`, `idchefe`, `idtelefonista1`, `idtelefonista2`, `data`) VALUES
+INSERT INTO `mapas` (`idmapa`, `ala`, `idofdia`, `idchefe`, `idtelefonista1`, `idtelefonista2`, `data`) VALUES
 	(1, 'Charlie', 17, 40, 32, 45, '2022-01-29 00:00:00'),
 	(2, 'Delta', 105, 11, 98, 98, '2022-01-30 00:00:00'),
 	(3, 'Alpha', 107, 28, 51, 73, '2022-01-31 00:00:00'),
@@ -2280,10 +2300,14 @@ INSERT IGNORE INTO `mapas` (`idmapa`, `ala`, `idofdia`, `idchefe`, `idtelefonist
 	(152, 'Charlie', 105, 27, 45, 45, '2022-06-22 00:00:00'),
 	(153, 'Delta', 17, 33, 45, 47, '2022-06-23 00:00:00'),
 	(154, 'Alpha', 17, 28, 120, 120, '2022-06-24 00:00:00'),
-	(155, 'Bravo', 107, 106, 57, 57, '2022-06-25 00:00:00');
+	(155, 'Bravo', 107, 106, 57, 57, '2022-06-25 00:00:00'),
+	(156, 'Charlie', 17, 27, 73, 73, '2022-06-26 00:00:00'),
+	(157, 'Delta', 105, 11, 51, 51, '2022-06-27 00:00:00'),
+	(158, 'Alpha', 107, 106, 120, 120, '2022-06-28 00:00:00'),
+	(159, 'Bravo', 17, 106, 119, 61, '2022-06-29 00:00:00'),
+	(160, 'Charlie', 122, 11, 45, 45, '2022-06-30 00:00:00');
 /*!40000 ALTER TABLE `mapas` ENABLE KEYS */;
 
--- Copiando estrutura para tabela mapavtr_test.pessoas
 CREATE TABLE IF NOT EXISTS `pessoas` (
   `codmil` int(11) NOT NULL AUTO_INCREMENT,
   `grad` text COLLATE utf8mb4_unicode_ci,
@@ -2298,9 +2322,9 @@ CREATE TABLE IF NOT EXISTS `pessoas` (
   PRIMARY KEY (`codmil`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela mapavtr_test.pessoas: ~87 rows (aproximadamente)
+DELETE FROM `pessoas`;
 /*!40000 ALTER TABLE `pessoas` DISABLE KEYS */;
-INSERT IGNORE INTO `pessoas` (`codmil`, `grad`, `rg`, `nomeguerra`, `nome`, `contato`, `img`, `pstatus`, `login`, `senha`) VALUES
+INSERT INTO `pessoas` (`codmil`, `grad`, `rg`, `nomeguerra`, `nome`, `contato`, `img`, `pstatus`, `login`, `senha`) VALUES
 	(1, 'Cel QOC', '01.073', 'QUEIROZ', 'Mauro GonÃ§alves de QUEIROZ', '64 3455-2311 e 64 9983-9605', NULL, 'n', NULL, NULL),
 	(4, 'Cap QOC', '02.310', 'INÃCIO teste', 'Niccolo INÃCIO Alves de Sousa', '62 9338-3239 - 62 8130-1216 - 61 9125-8714 - 64 9240-8214', NULL, 'n', NULL, NULL),
 	(6, 'ST QP/Comb.', '01.096', 'MARÇAL', 'Ueliston MARAL Silveira', '64 8131-8474', NULL, 'n', NULL, NULL),
@@ -2390,7 +2414,6 @@ INSERT IGNORE INTO `pessoas` (`codmil`, `grad`, `rg`, `nomeguerra`, `nome`, `con
 	(122, '2Âº Ten QOA', '01.096', 'MARÃ‡AL', 'UELISTON MARÃ‡AL SILVEIRA', '64981318474', 'tenmarcal.png', 's', NULL, NULL);
 /*!40000 ALTER TABLE `pessoas` ENABLE KEYS */;
 
--- Copiando estrutura para tabela mapavtr_test.vtr
 CREATE TABLE IF NOT EXISTS `vtr` (
   `vtrid` int(11) NOT NULL AUTO_INCREMENT,
   `vtrpref` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2402,9 +2425,9 @@ CREATE TABLE IF NOT EXISTS `vtr` (
   PRIMARY KEY (`vtrid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela mapavtr_test.vtr: ~42 rows (aproximadamente)
+DELETE FROM `vtr`;
 /*!40000 ALTER TABLE `vtr` DISABLE KEYS */;
-INSERT IGNORE INTO `vtr` (`vtrid`, `vtrpref`, `vtrtipo`, `vtrmarcamod`, `vtrano`, `vtrstatus`, `vtrimg`) VALUES
+INSERT INTO `vtr` (`vtrid`, `vtrpref`, `vtrtipo`, `vtrmarcamod`, `vtrano`, `vtrstatus`, `vtrimg`) VALUES
 	(2, '8010', 'ABS-02', 'BENZ / L1113', '1974', 'INATIVA', 'thumb.png'),
 	(3, '', 'ABT-09', 'VW / 16220', '1998', 'ATIVA', 'abt09.png'),
 	(4, '00.061', 'MOB-24', 'HONDA / CG TITAN', '1999', 'INATIVA', 'thumb.png'),
