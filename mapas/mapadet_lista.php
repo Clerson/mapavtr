@@ -1,9 +1,5 @@
 <?php require_once "../mapas/model.php";?>
 
-
-
-
-
 <li class="nav-item dropdown btn-light shadow-sm rounded-2">
 
    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">

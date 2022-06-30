@@ -1,10 +1,10 @@
-<div class="modal fade" id="iddetmp<?php echo $row_detmapa["iddetmp"]; ?>">
+<div class="modal fade" id="iddetmp<?=$row_detmapa["iddetmp"]; ?>">
   <div class="modal-dialog modal-lg" >
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header btn-warning">
-        <h4 class="modal-title">Editando o Registro #<?php echo $row_detmapa["iddetmp"]; ?> <i class="fas fa-ambulance"></i> <?php echo $row_detmapa["vtrtipo"]; ?></h4>
+        <h4 class="modal-title">Editando o Registro #<?=$row_detmapa["iddetmp"]; ?> <i class="fas fa-ambulance"></i> <?=$row_detmapa["vtrtipo"]; ?></h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -12,17 +12,17 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-5">
-            <img class="card-img-top" src="../veiculos/vtrimg/<?php echo $row_detmapa["vtrimg"]; ?>" alt="Card image">          
+            <img class="card-img-top" src="../veiculos/vtrimg/<?=$row_detmapa["vtrimg"]; ?>" alt="Card image">          
           </div>
           <div class="col-sm">
             <form action='model.php' method='POST' class='row gx-2 gy-2 text-center'>
               <div class="row gx-2 gy-2 text-center">
                 <div class="form-floating col-sm-1 me-2">
-                  <img src="../pessoas/pessoas_img/<?php echo $row_detmapa['img'];?>" width="55" height="65" class=" shadow-sm rounded-circle">
+                  <img src="../pessoas/pessoas_img/<?=$row_detmapa['img'];?>" width="55" height="65" class=" shadow-sm rounded-circle">
                 </div>
                 <div class='form-floating ms-3 col-sm'>
                   <select class='form-select' name='pessoa' required>
-                    <option value="<?php echo $row_detmapa['idpessoa'];?>"><?php echo $row_detmapa['grad']." ".$row_detmapa['nomeguerra'];?></option>
+                    <option value="<?=$row_detmapa['idpessoa'];?>"><?=$row_detmapa['grad']." ".$row_detmapa['nomeguerra'];?></option>
                       <?php 
 
                         $idpessoa = $row_detmapa['idpessoa'];
@@ -33,7 +33,7 @@
 
                          do { ?>
 
-                        <option value="<?php echo $row_p['codmil'];?>"><?php echo $row_p['nomeguerra'];?></option>  
+                        <option value="<?=$row_p['codmil'];?>"><?=$row_p['nomeguerra'];?></option>  
                       
                         <?php } while ($row_p = mysqli_fetch_assoc($result_p))
 
@@ -45,17 +45,17 @@
               <div class="input-group">
                 <span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span>
                 <span class="input-group-text">Saída</span>
-                <input type="number" class="form-control"  name="odomsaida" value="<?php echo $row_detmapa["odomsaida"];?>" placeholder="KM saída">
+                <input type="number" class="form-control"  name="odomsaida" value="<?=$row_detmapa["odomsaida"];?>" placeholder="KM saída">
                 <span class="input-group-text">Chegada</span>
-                <input type="number" class="form-control"  name="odomentr" min="<?php echo $row_detmapa["odomsaida"];?>" value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
+                <input type="number" class="form-control"  name="odomentr" min="<?=$row_detmapa["odomsaida"];?>" value="<?=$row_detmapa["odomentr"];?>" placeholder="kM chegada">
               </div>
 
               <div class="input-group">
                 <span class="input-group-text"><i class='far fa-hourglass'></i></span>
                 <span class="input-group-text">Saída</span>
-                <input type="time" class="form-control" name="horasaida"  value="<?php echo $row_detmapa["horasaida"];?>" placeholder="Hora saída">
+                <input type="time" class="form-control" name="horasaida"  value="<?=$row_detmapa["horasaida"];?>" placeholder="Hora saída">
                 <span class="input-group-text">Chegada</span>
-                <input type="time" class="form-control"  name="horaentr" value="<?php echo $row_detmapa["horaentr"];?>" placeholder="Hora chegada" >
+                <input type="time" class="form-control"  name="horaentr" value="<?=$row_detmapa["horaentr"];?>" placeholder="Hora chegada" >
               </div>
 
               <div class="col-sm form-floating"> 
@@ -83,12 +83,12 @@
               </div>
 
               <div class="form-floating"> 
-                <textarea rows="5" cols="50" class="form-control" name="obs" placeholder="obs"><?php echo $row_detmapa['obs']; ?></textarea>
+                <textarea rows="5" cols="50" class="form-control" name="obs" placeholder="obs"><?=$row_detmapa['obs']; ?></textarea>
                 <label for="obs">Observações:</label>
               </div>
-                <input type="text" name="idmapa" value="<?php echo $row_detmapa['idmapa'];?>" hidden>
-                <input type='text' name='iddetmp' value='<?php echo $row_detmapa['iddetmp'];?>' hidden>
-                <input type="text" name="idvtr" value="<?php echo $row_detmapa['idvtr'];?>" hidden>
+                <input type="text" name="idmapa" value="<?=$row_detmapa['idmapa'];?>" hidden>
+                <input type='text' name='iddetmp' value='<?=$row_detmapa['iddetmp'];?>' hidden>
+                <input type="text" name="idvtr" value="<?=$row_detmapa['idvtr'];?>" hidden>
 
               <div class="form-floating">
                 <button type="submit" class="btn btn-primary" name="acao" value="updatemapadet">Salvar</button>
@@ -101,8 +101,8 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $row_detmapa['iddetmp'] ;?>"><i class="fas fa-trash"></i> Excluir</button>
-        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $row_detmapa['iddetmp'] ;?>"><i class="fas fa-ambulance"></i> Nova Rota</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluir<?=$row_detmapa['iddetmp'] ;?>"><i class="fas fa-trash"></i> Excluir</button>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?=$row_detmapa['iddetmp'] ;?>"><i class="fas fa-ambulance"></i> Nova Rota</button>
         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>

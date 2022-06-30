@@ -12,11 +12,11 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/pessoas"><i class='fas fa-users'></i>  PESSOAS</a>
-<!--           </li>
+           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class='far fa-file-alt'></i>  RELATÓRIOS</a>
+            <a class="nav-link" href="/entidades"><i class='fas fa-users'></i>  ENTIDADES</a>
           </li>
-          <li class="nav-item">
+<!--          <li class="nav-item">
             <a class="nav-link" href="#"><i class='fas fa-phone'></i>  CONTATOS</a>
           </li>
           <li class="nav-item">
