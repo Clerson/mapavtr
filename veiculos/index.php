@@ -1,9 +1,9 @@
 <?php
 
-include '_head.php';
+require '_head.php';
 
-include 'list.php';
+require 'list.php';
 
-include '../templates/footer.php';
+require '../templates/footer.php';
 
 ?>

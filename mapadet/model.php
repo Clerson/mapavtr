@@ -1,8 +1,6 @@
 <?php
 
-require '../conexao.php';
-
-$sql_detmapa = "SELECT * FROM detmapa ORDER BY iddetmp DESC";
+$sql_detmapa = "SELECT * FROM detmapa, pessoas, veiculos WHERE  idpessoa=codmil AND idvtr = vtrid ORDER BY iddetmp DESC";
 
   if(isset($_REQUEST['idmapa'])) {
     $_SESSION['idmapa'] = $_REQUEST['idmapa'];
@@ -27,27 +25,9 @@ if(isset($_GET['iddetmp'])) {
 
      $iddetmp = $_GET['iddetmp'];
      $sql_detmapa = "SELECT * FROM detmapa, vtr, pessoas WHERE iddetmp = $iddetmp AND idvtr = vtrid AND idpessoa = codmil";
-  ;} 
+
+} 
  
-    if(isset($_GET['delete'])) {
-
-    $iddetmp = $_GET['delete'];
-    $idvtr = $_GET['idvtr'];
-
-     $sql_detmapa = "DELETE FROM detmapa WHERE iddetmp=$iddetmp";
-
-     if ($conn->query($sql_detmapa) === TRUE) {
-
-       if ($_GET['idvtr'] === FALSE) { echo "<script>location.href='analit.php?idmapa=".$idmapa."&idvtr=".$idvtr."'</script>"; } 
-
-       echo "<script>location.href='index.php?idmapa=".$idmapa."'</script>";
-
-      } else {
-        echo "Error: " . $sql_detmapa . "<br>" . $conn->error;
-      } exit();
-     } // FIM DA if(($acao) == 'delete') 
-
-
     $result_detmapa = mysqli_query($conn, $sql_detmapa);  
     $row_detmapa = mysqli_fetch_assoc($result_detmapa); 
    
@@ -75,8 +55,11 @@ if (!empty($_POST['idmapa'])) {
         
         $iddetmp = $_POST['iddetmp'];
         $sql_acao = "UPDATE detmapa SET idmapa = $idmapa, idvtr = $idvtr, idpessoa = $idpessoa, odomsaida = $odomsaida, odomentr = $odomentr, horasaida = '$horasaida', horaentr = '$horaentr', destino = '$destino',  detmp_status = '$status', obs = '$obs' WHERE iddetmp = $iddetmp";
+
+        $sql_update_odom = "UPDATE vtr SET vtrodomatual = $odomentr WHERE vtrid = $idvtr";
+        $conn->query($sql_update_odom);
         
-        ;}
+        }
 
 
 
@@ -88,5 +71,23 @@ if (!empty($_POST['idmapa'])) {
     }
 
 ;}
+
+if(isset($_GET['delete'])) {
+
+    $iddetmp = $_GET['delete'];
+    $idvtr = $_GET['idvtr'];
+
+     $sql_detmapa = "DELETE FROM detmapa WHERE iddetmp=$iddetmp";
+
+     if ($conn->query($sql_detmapa) === TRUE) {
+
+       if ($_GET['idvtr'] === FALSE) { echo "<script>location.href='analit.php?idmapa=".$idmapa."&idvtr=".$idvtr."'</script>"; } 
+
+       echo "<script>location.href='index.php?idmapa=".$idmapa."'</script>";
+
+      } else {
+        echo "Error: " . $sql_detmapa . "<br>" . $conn->error;
+      } exit();
+     } // FIM DA if(($acao) == 'delete') 
 
 ;?>

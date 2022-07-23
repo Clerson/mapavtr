@@ -11,7 +11,7 @@
       <!-- Modal body -->
       <div class="modal-body">
         <div class="row">
-          <div class="col-sm-5">
+          <div class="col-sm-4">
             <img class="card-img-top" src="../veiculos/vtrimg/<?=$row_detmapa["vtrimg"]; ?>" alt="Card image">          
           </div>
           <div class="col-sm">

@@ -29,6 +29,6 @@
 
 include '../templates/footer.php';?>
 
-<script src="atualizaOdomVtr.js"></script>
+<script src="../scripts/atualizaOdomVtr.js"></script>
 
 
