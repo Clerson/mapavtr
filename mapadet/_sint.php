@@ -1,16 +1,15 @@
 <?php
 
-$idmapa = $_SESSION['idmapa'];
 $sql_detmapa2 = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";
-$result_detmapa2 = mysqli_query($conn, $sql_detmapa2);
-$row_detmapa2 = mysqli_fetch_assoc($result_detmapa2);
+$result_detmapa2 = $conn->query($sql_detmapa2);
+$row_detmapa2 = $result_detmapa2->fetch_assoc();
 
     do { 
 
     $idvtr = $row_detmapa2['idvtr']; 
     $sql_vtr_m = "SELECT * FROM vtr WHERE vtrid = $idvtr AND vtrstatus='ativa' ORDER BY vtrtipo ASC";
-    $result_vtr_m = mysqli_query($conn, $sql_vtr_m);
-    $row_vtr_m = mysqli_fetch_assoc($result_vtr_m);
+    $result_vtr_m = $conn->query($sql_vtr_m);
+    $row_vtr_m = $result_vtr_m->fetch_assoc();
 
 
     ;?>  
@@ -28,4 +27,4 @@ $row_detmapa2 = mysqli_fetch_assoc($result_detmapa2);
 </div>
     
 
-<?php } while ($row_detmapa2 = mysqli_fetch_assoc($result_detmapa2)); ?>
+<?php } while ($row_detmapa2 =$result_detmapa2->fetch_assoc()); ?>
