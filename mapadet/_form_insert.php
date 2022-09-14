@@ -58,7 +58,7 @@
           <div class="form-floating  col-sm"> 
             <select class="form-select" name="destino"  required>
               <option value="Abastecimento">Abastecimento</option>
-              <option value="Ocorrencia">Ocorrência</option>
+              <option value="Ocorrencia" selected>Ocorrência</option>
               <option value="Oficina">Oficina</option>
               <option value="Ordem de Serviço">Ordem de Serviço</option>
               <option value="Orçamentos">Orçamentos</option>
