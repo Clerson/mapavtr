@@ -19,70 +19,48 @@
 ?>
 
         <div class="row gx-1">
-          <div class="col-3">
+
+          <div class="col-2">
 
             <img class="card-img-top" src="../veiculos/vtrimg/<?=$vtrimg?>" alt="Card image">
-            <div class="btn-warning p-2 text-center"><h4><?=$vtrtipo?></h4></div>
+            <div class="text-center"><?=$vtrtipo?></div>
           </div>
 
           <div class="col">
+
             <form action='' method='POST' class='row gx-1 gy-1 text-center'>
 
-              <div class="input-group row gx-2 gy-1 mb-2 text-center">
+                <div class='form-floating col-2'>
+                  <input type="date" class="form-control" value="<?=date('Y-m-d')?>" name="data" required>
+                  <label for='Data'>Data:</label>
+                </div>
+   
+                <div class='form-floating col-3'>
+                  <input type="number" class="form-control" name="odom" value="<?=$odom?>" required>
+                  <label for='odom'>Odômetro (Mapa de Vtr):</label>
+                </div>
 
-              <div class='form-floating col-sm'>
-                <input type="date" class="form-control" value="<?=date('Y-m-d')?>" name="data" required>
-                <label for='Data'>Data:</label>
-              </div>
+                <div class='form-floating col-4'>
+                  <input type="text" class="form-control" name="respons" value="<?=$respons?>">
+                  <label for='respons'>Responsável pelo serviço:</label>
+                </div>
 
-            
-              <div class='form-floating'> 
-                <select class='form-select' name='tipoid' required>
-                  <?php
-                    $sql_manut_tipo = "SELECT * FROM manut_tipo";
-                    $result_manut_tipo = $conn->query($sql_manut_tipo);
-                    $row_manut_tipo = $result_manut_tipo->fetch_assoc();
+                <div class="form-floating col-sm"> 
+                  <select class="form-select"  name="status"  value="{$status}" required>
+                    <option value="a" <?php if ($status=='a') echo 'selected' ;?>>Ativa</option>
+                    <option value="p" <?php if ($status=='p') echo 'selected' ;?>>Programada</option>
+                    <option value="c" <?php if ($status=='c') echo 'selected' ;?>>Concluída</option>
+                    <option value="x" <?php if ($status=='x') echo 'selected' ;?>>Cancelada</option>
+                  </select>
+                  <label for="status">Status:</label>
+                </div>
 
-                   while ($row_manut_tipo = $result_manut_tipo->fetch_assoc()) { ?> 
-                    <option value='<?=$row_manut_tipo["vtrmantipo_id"]?>' <?php if ($row_manut_tipo["vtrmantipo_id"]==$vtrmantipo_id): echo "selected" ?>
-                      
-                    <?php endif ?>><?=$row_manut_tipo["vtrmantipo"]?></option>
+                <div class='form-floating'>
+                <textarea class="form-control" name="observ"><?=$observ;?></textarea>
+                  <label for='observ'>Observações:</label>
+                </div>
 
-                  <?php } 
-
-                   ?>
-                </select>
-                <label for='tipoid'>Manutenção realizada:</label>
-              </div>
-
- 
-              <div class='form-floating col-sm'>
-                <input type="number" class="form-control" name="odom" value="<?=$odom?>" required>
-                <label for='odom'>Odômetro (Mapa de Vtr):</label>
-              </div>
-
-              <div class='form-floating'>
-                <input type="text" class="form-control" name="respons" value="<?=$respons?>">
-                <label for='respons'>Responsável pelo serviço:</label>
-              </div>
-
-              <div class='form-floating'>
-              <textarea class="form-control" name="observ"><?=$observ;?></textarea>
-                <label for='observ'>Observações:</label>
-              </div>
-
-              <div class="form-floating col-sm"> 
-                <select class="form-select"  name="status"  value="{$status}" required>
-                  <option value="ativa" <?php if ($status=='ativa') echo 'selected' ;?>>Ativa</option>
-                  <option value="inativa" <?php if ($status=='inativa') echo 'selected' ;?>>Inativa</option>
-                  <option value="a" <?php if ($status=='a') echo 'selected' ;?>>Ativa</option>
-                  <option value="p" <?php if ($status=='p') echo 'selected' ;?>>Programada</option>
-                  <option value="c" <?php if ($status=='c') echo 'selected' ;?>>Concluída</option>
-                  <option value="x" <?php if ($status=='x') echo 'selected' ;?>>Cancelada</option>
-                </select>
-                <label for="status">Status:</label>
-              </div>
-
+                
               <input type="text" name="id" value="<?=$id?>" hidden>
 
               <input type="text" name="idvtr" value="<?=$idvtr?>" hidden>

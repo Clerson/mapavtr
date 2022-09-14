@@ -27,9 +27,9 @@ do {
   ?>
 
 <?php if($vtrstatus == 'INATIVA') {
-  echo "<div class='col-sm-2 shadow rounded-3 bg-secondary'>";
+  echo "<div class='col-sm-2 shadow rounded-3 bg-secondary m-2'>";
 }
-else echo "<div class='col-sm-2 shadow rounded-3'>" ;?>
+else echo "<div class='col-sm-2 shadow rounded-3 m-2'>" ;?>
 
       <div class="container1" >
       <a href="_form_update.php?vtrid=<?=$vtrid; ?>">

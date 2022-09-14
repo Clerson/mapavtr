@@ -14,7 +14,6 @@
       <tr>
         <th>#</th>
         <th>DATA</th>
-        <th>MANUTENÇÃO</th>
         <th>RESPONSÁVEL</th>
         <th>STATUS</th>
         <th>Opções</th>
@@ -28,21 +27,14 @@
     $id=$row['id'];
     $idvtr = $row['idvtr'];
     $data=date('d/m/Y', (strtotime($row['data'])));
-    $data1=date('Y-m-d', (strtotime($row['data'])));
     $respons = $row["respons"];
     $status = $row["status"];
-    $vtrtipo = $row["vtrtipo"];
-    $vtrimg = $row["vtrimg"];
-    $vtrmantipo_id = $row["vtrmantipo_id"];
-    $vtrmantipo = $row["vtrmantipo"];
     ?>
 
       <tr>
         <td><?=$id?></td>
         
         <td><?=$data?></td>
-
-        <td><?=$vtrmantipo?></td>
 
         <td><?=$respons?></td>
 
@@ -70,6 +62,7 @@
         <td>
           <?php if (!isset($_GET['excluir'])){ ?>
           <a href="_form_update.php?id=<?=$id?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+          <a href="manutdet.php?idvtr=<?=$idvtr?>&id=<?=$id?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a>
           <a href="?id=<?=$id?>&excluir=1" type="button" class="btn btn-danger"><i class="fas fa-trash"></i></a>
           <?php } 
 
@@ -84,7 +77,6 @@
 
         
       </tr>
-
 
 
     <?php 

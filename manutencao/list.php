@@ -34,15 +34,11 @@
     ?>
 
       <tr>
-        <td><?=$id." ".$vtrtipo?>
-
-        </td>
+        <td><?=$id." ".$vtrtipo?></td>
         
         <td><?=$data?></td>
 
-        <td>
-        <?=$vtrmantipo?>    
-        </td>
+        <td><?=$vtrmantipo?></td>
 
         <td><?=$odom?></td>
 
@@ -52,14 +48,14 @@
           <?php if (!isset($_GET['excluir'])){ ?>
           <a href="_form_update.php?id=<?=$id?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
           <a href="?id=<?=$id?>&excluir=1" type="button" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-          <?php } 
+            <?php } 
 
-          else { ?>
+            else { ?>
 
-          <div class="bg-warning m-1 p-1 text-center rounded">Tem certeza que deseja excluir esse registro?</div>
-                   <a href="?delete=<?=$id?>" class="btn btn-danger text-center"><i class="fas fa-trash"></i> Sim</a>
-          <?php } ;?>
-         </div> 
+            <div class="bg-warning m-1 p-1 text-center rounded">Tem certeza que deseja excluir esse registro?</div>
+                     <a href="?delete=<?=$id?>" class="btn btn-danger text-center"><i class="fas fa-trash"></i> Sim</a>
+            <?php } ;?>
+            </div> 
          
         </td>
       </tr>

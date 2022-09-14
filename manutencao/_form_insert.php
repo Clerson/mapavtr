@@ -3,7 +3,7 @@
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header bg-warning"><h4>INSERINDO NOVA MANUTENÇÃO <i class="fas fa-cog"></i></h4>
+      <div class="modal-header bg-warning"><h4><i class="fas fa-wrench"></i> NOVA MANUTENÇÃO</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -84,9 +84,6 @@
                 </select>
                 <label for="status">Status:</label>
               </div>
-
-
-              <input type="text" name="status" value="ativa" hidden>
 
               <div class="form-floating">
                 <button type="submit" class="btn btn-primary " name="acao" value="insert">Enviar</button>

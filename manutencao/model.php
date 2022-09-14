@@ -1,18 +1,25 @@
 <?php
    include "../conexao.php";
    $order = "ORDER BY id DESC";
-   $sql1 = "SELECT * FROM manut, vtr, manut_tipo WHERE idvtr=vtrid AND vtrmantipo_id = tipoid ";
+   $sql1 = "SELECT * FROM manut, vtr WHERE idvtr=vtrid ";
     $sql = $sql1.$order;
-
-   if (!empty($_GET['id'])) {    
-      $id = $_GET['id'];
-      $sql = $sql1."AND id = $id";
-   }
 
     if (!empty($_GET['idvtr'])) {    
       $idvtr = $_GET['idvtr'];
       $sql = $sql1."AND $idvtr = vtrid";
    }
+
+   if (!empty($_GET['id'])) {    
+      $id = $_GET['id'];
+      $sql = $sql1."AND id = $id";
+
+          // $sql_manut = "SELECT id, manutid, manut_tipo_id, vtrmantipo_id, vtrmanparte, vtrmantipo FROM manut_det, manut_tipo WHERE manutid=$id AND manut_tipo_id=vtrmantipo_id";
+
+          // $result_manut = $conn->query($sql_manut);
+          // $row_manut = $result_manut->fetch_assoc();
+          // $num_row_manut = $result_manut->num_rows;
+   }
+
 
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -34,11 +41,14 @@
       $vtrodomatual = $row_vtr["vtrodomatual"];
 
 
+
+   
+
+
 if (isset($_POST['acao'])) {
 
     $data = $_POST["data"];
     $idvtr = $_POST["idvtr"];
-    $tipoid = $_POST["tipoid"];
     $odom = $_POST["odom"];    
     $respons = $_POST["respons"];
     $status = $_POST["status"];
@@ -50,7 +60,6 @@ if (isset($_POST['acao'])) {
       $sql = "INSERT INTO manut (
         idvtr, 
         data,
-        tipoid,
         odom,
         respons,
         observ,
@@ -61,7 +70,6 @@ if (isset($_POST['acao'])) {
       VALUES (
         $idvtr, 
         '$data', 
-        $tipoid, 
         $odom,
         '$respons',
         '$observ',
@@ -84,7 +92,6 @@ if (isset($_POST['acao'])) {
         $sql = "UPDATE manut SET 
         idvtr=$idvtr, 
         data='$data',
-        tipoid=$tipoid,
         odom=$odom,
         respons='$respons',
         status='$status',
